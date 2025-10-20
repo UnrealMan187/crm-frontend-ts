@@ -1,0 +1,40 @@
+:root {
+  --primary: #0284C7;
+  --primary-600: #0369A1;
+  --primary-100: #E0F2FE;
+}
+
+/* Dark (Default) */
+:root[data-theme="dark"] {
+  --bg: #0F172A;
+  --surface: #111C2E;
+  --muted: #1B2A44;
+  --text: #E5E7EB;
+  --text-muted: #94A3B8;
+  --border: #22314F;
+}
+
+/* Light */
+:root[data-theme="light"] {
+  --bg: #FFFFFF;
+  --surface: #F8FAFC;
+  --muted: #EEF2F7;
+  --text: #0F172A;
+  --text-muted: #475569;
+  --border: #E5E7EB;
+}
+
+html, body, #app {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.14);
+}
