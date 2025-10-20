@@ -1,0 +1,26 @@
+{
+    "brand": "YourBrand",
+    "nav": {
+      "dashboard": "Dashboard",
+      "login": "Login",
+      "marketplace": "Marketplace"
+
+    },
+    "topbar": {
+      "search": "Search…",
+      "app": "YourBrand CRM",
+      "theme": { "dark": "Dark", "light": "Light" },
+      "language": "Language"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "subtitle": "Your CRM overview will appear here."
+    },
+    "login": {
+      "title": "Login",
+      "subtitle": "Test login without backend.",
+      "mockButton": "Mock login (buyer/free)",
+      "back": "Back to Dashboard"
+    }
+  }
+  
