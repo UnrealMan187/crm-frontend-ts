@@ -1,20 +1,33 @@
 {
-    "brand": "CRM System",
-    "topbar": {
-      "app": "CRM",
-      "search": "Search..."
+  "brand": "CRM System",
+  "topbar": { "app": "CRM", "search": "Search..." },
+  "nav": {
+    "dashboard": "Dashboard",
+    "marketplace": "Marketplace",
+    "leads": "Leads",
+    "login": "Login"
+  },
+  "login": {
+    "title": "Sign in",
+    "subtitle": "Test login without backend",
+    "mockButton": "Mock Login (buyer/free)",
+    "back": "Back to Dashboard"
+  },
+  "dashboard": {
+    "subtitle": "Overview of leads, appointments & revenue",
+    "kpis": {
+      "leads": "Total leads",
+      "newLeads": "New leads",
+      "conversion": "Conversion",
+      "revenue": "Revenue"
     },
-    "nav": {
-      "dashboard": "Dashboard",
-      "marketplace": "Marketplace",
-      "leads": "Leads",
-      "login": "Login"
-    },
-    "login": {
-      "title": "Sign in",
-      "subtitle": "Test login without backend",
-      "mockButton": "Mock Login (buyer/free)",
-      "back": "Back to Dashboard"
-    }
-  }
-  
+    "latestLeads": "Latest leads",
+    "latestLeadsHint": "A compact overview of your recent leads.",
+    "placeholderTable": "Table coming in the next step.",
+    "activity": "Activity",
+    "activityItem1": "Created lead Müller GmbH",
+    "activityItem2": "Scheduled meeting with Schmidt AG",
+    "activityItem3": "Created quote for Project X"
+  },
+  "market": { "subtitle": "Pick a category and choose your lead package" }
+}

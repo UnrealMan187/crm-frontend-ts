@@ -1,20 +1,33 @@
 {
-    "brand": "CRM-System",
-    "topbar": {
-      "app": "CRM",
-      "search": "Suche..."
+  "brand": "CRM-System",
+  "topbar": { "app": "CRM", "search": "Suche..." },
+  "nav": {
+    "dashboard": "Dashboard",
+    "marketplace": "Marktplatz",
+    "leads": "Leads",
+    "login": "Login"
+  },
+  "login": {
+    "title": "Anmelden",
+    "subtitle": "Test-Login ohne Backend",
+    "mockButton": "Mock-Login (buyer/free)",
+    "back": "Zurück zum Dashboard"
+  },
+  "dashboard": {
+    "subtitle": "Überblick über Leads, Termine & Umsatz",
+    "kpis": {
+      "leads": "Leads gesamt",
+      "newLeads": "Neue Leads",
+      "conversion": "Conversion",
+      "revenue": "Umsatz"
     },
-    "nav": {
-      "dashboard": "Dashboard",
-      "marketplace": "Marktplatz",
-      "leads": "Leads",
-      "login": "Login"
-    },
-    "login": {
-      "title": "Anmelden",
-      "subtitle": "Test-Login ohne Backend",
-      "mockButton": "Mock-Login (buyer/free)",
-      "back": "Zurück zum Dashboard"
-    }
-  }
-  
+    "latestLeads": "Neueste Leads",
+    "latestLeadsHint": "Eine kompakte Übersicht deiner letzten Leads.",
+    "placeholderTable": "Tabelle folgt im nächsten Schritt.",
+    "activity": "Aktivitäten",
+    "activityItem1": "Lead Müller GmbH angelegt",
+    "activityItem2": "Termin mit Schmidt AG geplant",
+    "activityItem3": "Angebot für Projekt X erstellt"
+  },
+  "market": { "subtitle": "Wähle eine Kategorie und buche dein Lead-Paket" }
+}
