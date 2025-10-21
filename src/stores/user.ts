@@ -1,32 +1,46 @@
 import { defineStore } from 'pinia';
 
 export type UserRole = 'buyer' | 'setter' | 'admin';
-export type UserPlan = 'free' | 'pro';
 
-interface User {
+export interface User {
   id: string;
+  name: string;
   email: string;
   role: UserRole;
-  plan: UserPlan;
+}
+
+const STORAGE_KEY = 'session:user';
+
+function loadSession(): User | null {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) as User : null;
+  } catch { return null; }
 }
 
 export const useUserStore = defineStore('user', {
   state: () => ({
-    user: null as User | null,
+    user: loadSession() as User | null
   }),
   getters: {
     isAuthenticated: (s) => !!s.user,
-    role: (s): UserRole => s.user?.role ?? 'buyer',
-    plan: (s): UserPlan => s.user?.plan ?? 'free',
-    hasPro: (s) => s.user?.plan === 'pro',
+    role: (s) => s.user?.role as UserRole | undefined,
   },
   actions: {
-    // Temporär: Mock-Login, bis Supabase angebunden ist
-    loginMock(email = 'demo@yourbrand.de', role: UserRole = 'buyer', plan: UserPlan = 'free') {
-      this.user = { id: crypto.randomUUID(), email, role, plan };
+    loginMock(role: UserRole = 'buyer') {
+      // einfache Demo-Identität
+      const u: User = {
+        id: crypto.randomUUID(),
+        name: role === 'admin' ? 'Admin' : role === 'setter' ? 'Setter' : 'Buyer',
+        email: `${role}@demo.local`,
+        role
+      };
+      this.user = u;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(u));
     },
     logout() {
       this.user = null;
-    },
-  },
+      localStorage.removeItem(STORAGE_KEY);
+    }
+  }
 });

@@ -1,24 +1,20 @@
 {
+    "brand": "CRM System",
+    "topbar": {
+      "app": "CRM",
+      "search": "Search..."
+    },
     "nav": {
       "dashboard": "Dashboard",
-      "login": "Login",
       "marketplace": "Marketplace",
-      "leads": "Leads"
+      "leads": "Leads",
+      "login": "Login"
     },
-    "market": {
-      "title": "Lead Packages",
-      "subtitle": "Choose a category and bundle size.",
-      "pricePerLead": "{price} € / lead",
-      "package": "Package {id}",
-      "leads": "{count} leads",
-      "select": "Select",
-      "selectedTitle": "{category} – Package {id} ({leads} leads)",
-      "selectedPrice": "{price} €",
-      "addToCart": "Add to cart",
-      "cancel": "Cancel",
-      "popular": "Popular",
-      "bestPrice": "Best price",
-      "bundle": "Bundle price"
+    "login": {
+      "title": "Sign in",
+      "subtitle": "Test login without backend",
+      "mockButton": "Mock Login (buyer/free)",
+      "back": "Back to Dashboard"
     }
   }
   
