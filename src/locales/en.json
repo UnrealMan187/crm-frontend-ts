@@ -1,33 +1,46 @@
 {
   "brand": "CRM System",
-  "topbar": { "app": "CRM", "search": "Search..." },
   "nav": {
     "dashboard": "Dashboard",
     "marketplace": "Marketplace",
     "leads": "Leads",
     "login": "Login"
   },
-  "login": {
-    "title": "Sign in",
-    "subtitle": "Test login without backend",
-    "mockButton": "Mock Login (buyer/free)",
-    "back": "Back to Dashboard"
+  "topbar": {
+    "app": "CRM",
+    "search": "Search…",
+    "cart": "Cart",
+    "login": "Login",
+    "logout": "Logout"
   },
-  "dashboard": {
-    "subtitle": "Overview of leads, appointments & revenue",
-    "kpis": {
-      "leads": "Total leads",
-      "newLeads": "New leads",
-      "conversion": "Conversion",
-      "revenue": "Revenue"
-    },
-    "latestLeads": "Latest leads",
-    "latestLeadsHint": "A compact overview of your recent leads.",
-    "placeholderTable": "Table coming in the next step.",
-    "activity": "Activity",
-    "activityItem1": "Created lead Müller GmbH",
-    "activityItem2": "Scheduled meeting with Schmidt AG",
-    "activityItem3": "Created quote for Project X"
+  "market": {
+    "title": "Lead Marketplace",
+    "subtitle": "Choose a category and book your lead package",
+    "pricePerLead": "Price per lead",
+    "package": "Package",
+    "leads": "Leads",
+    "select": "Select"
   },
-  "market": { "subtitle": "Pick a category and choose your lead package" }
+  "cart": {
+    "title": "Cart",
+    "subtitle": "Overview of your selected lead packages",
+    "empty": "Your cart is empty.",
+    "category": "Category",
+    "tier": "Package",
+    "leads": "Leads",
+    "pricePerLead": "Price/Lead",
+    "total": "Total",
+    "remove": "Remove",
+    "clear": "Clear",
+    "subtotal": "Subtotal",
+    "proceed": "Proceed (MVP)",
+    "proceedHint": "In the MVP we only show the overview. Checkout/payment comes next.",
+    "backToMarket": "Back to marketplace"
+  },
+  "modal": {
+    "title": "Package details",
+    "priceLead": "Price per lead",
+    "addToCart": "Add to cart",
+    "close": "Close"
+  }
 }

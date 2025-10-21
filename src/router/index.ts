@@ -2,46 +2,61 @@ import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import { useUserStore } from '../stores/user';
 
 const routes: RouteRecordRaw[] = [
+  // Dashboard (geschützt)
   { path: '/', name: 'dashboard', component: () => import('../views/DashboardView.vue') },
 
-  // öffentlich
+  // Login (öffentlich)
   { path: '/login', name: 'login', component: () => import('../views/LoginView.vue'), meta: { public: true } },
 
-  // frei zugänglich: Marketplace (kann auch public sein)
+  // Marktplatz (öffentlich)
   { path: '/marketplace', name: 'marketplace', component: () => import('../views/MarketplaceView.vue'), meta: { public: true } },
 
-  // geschützt: Leads (buyer & setter & admin)
-  { path: '/leads', name: 'leads', component: () => import('../views/LeadsView.vue'),
-    meta: { roles: ['buyer','setter','admin'] } },
+  // Leads (geschützt: buyer, setter, admin)
+  { 
+    path: '/leads', 
+    name: 'leads', 
+    component: () => import('../views/LeadsView.vue'),
+    meta: { roles: ['buyer', 'setter', 'admin'] } 
+  },
 
-  // Beispiel für Admin-only (später): 
+  // Checkout (öffentlich zugänglich, weil Käufer noch nicht eingeloggt sein müssen)
+  { 
+    path: '/checkout', 
+    name: 'checkout', 
+    component: () => import('../views/CheckoutView.vue'),
+    meta: { public: true } 
+  },
+
+  // Beispiel für Admin-only (später)
   // { path: '/admin', name: 'admin', component: () => import('../views/AdminView.vue'), meta: { roles: ['admin'] } },
 
-  // fallback
+  // Fallback (404 → Dashboard)
   { path: '/:pathMatch(.*)*', redirect: '/' }
 ];
 
-const router = createRouter({ history: createWebHistory(), routes });
+const router = createRouter({
+  history: createWebHistory(),
+  routes
+});
 
 // Globaler Guard
 router.beforeEach((to) => {
   const store = useUserStore();
 
-  // Public Route? -> durchlassen
+  // Öffentliche Route → durchlassen
   if (to.meta?.public) return true;
 
-  // Hat Route Rollen-Restriktion?
+  // Rollen-Restriktionen prüfen
   const allowedRoles = (to.meta?.roles as string[] | undefined);
-
-  // Wenn keine Restriktion angegeben: require login
   const needsAuth = !to.meta?.public;
 
+  // Wenn Auth nötig, aber User nicht eingeloggt → Login
   if (needsAuth && !store.isAuthenticated) {
     return { name: 'login', query: { redirect: to.fullPath } };
   }
 
+  // Wenn Rolle erforderlich, aber User sie nicht hat → Dashboard
   if (allowedRoles && store.role && !allowedRoles.includes(store.role)) {
-    // verboten -> einfache Umleitung (Dashboard)
     return { name: 'dashboard' };
   }
 
