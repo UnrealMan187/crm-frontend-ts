@@ -62,10 +62,11 @@
   const { sidebarOpen, closeSidebar } = useLayout();
   
   const items = [
-    { key: 'nav.dashboard', to: '/' },
-    { key: 'nav.login', to: '/login' },
-    { key: 'nav.marketplace', to: '/marketplace' }
-    // später: Leads, Marketplace, Kunden, Abrechnung, Einstellungen …
-  ];
+  { key: 'nav.dashboard', to: '/' },
+  { key: 'nav.marketplace', to: '/marketplace' },
+  { key: 'nav.leads', to: '/leads' },
+  { key: 'nav.login', to: '/login' }
+];
+
   </script>
   

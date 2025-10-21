@@ -1,26 +1,24 @@
 {
-    "brand": "YourBrand",
     "nav": {
       "dashboard": "Dashboard",
       "login": "Login",
-      "marketplace": "Marketplace"
-
+      "marketplace": "Marketplace",
+      "leads": "Leads"
     },
-    "topbar": {
-      "search": "Search…",
-      "app": "YourBrand CRM",
-      "theme": { "dark": "Dark", "light": "Light" },
-      "language": "Language"
-    },
-    "dashboard": {
-      "title": "Dashboard",
-      "subtitle": "Your CRM overview will appear here."
-    },
-    "login": {
-      "title": "Login",
-      "subtitle": "Test login without backend.",
-      "mockButton": "Mock login (buyer/free)",
-      "back": "Back to Dashboard"
+    "market": {
+      "title": "Lead Packages",
+      "subtitle": "Choose a category and bundle size.",
+      "pricePerLead": "{price} € / lead",
+      "package": "Package {id}",
+      "leads": "{count} leads",
+      "select": "Select",
+      "selectedTitle": "{category} – Package {id} ({leads} leads)",
+      "selectedPrice": "{price} €",
+      "addToCart": "Add to cart",
+      "cancel": "Cancel",
+      "popular": "Popular",
+      "bestPrice": "Best price",
+      "bundle": "Bundle price"
     }
   }
   

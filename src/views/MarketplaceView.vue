@@ -1,9 +1,11 @@
 <template>
-    <section>
-      <h1>Lead-Pakete</h1>
-      <p class="text-textMuted mt-2">Wähle eine Kategorie und Bundle-Größe.</p>
+    <section class="mx-auto max-w-7xl">
+      <header class="mb-6">
+        <h1 class="text-2xl md:text-3xl font-display font-semibold">{{ $t('market.title') }}</h1>
+        <p class="text-textMuted mt-2">{{ $t('market.subtitle') }}</p>
+      </header>
   
-      <div class="mt-6 grid grid-cols-1 gap-5 xl:grid-cols-2">
+      <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
         <PackageCard
           v-for="cat in catalog"
           :key="cat.id"
@@ -17,15 +19,22 @@
           <div class="flex flex-wrap items-center justify-between gap-3">
             <div>
               <div class="font-medium">
-                {{ selection.category.name }} – Paket {{ selection.tier.id }} ({{ selection.tier.leads }} Leads)
+                {{ $t('market.selectedTitle', {
+                  category: selection.category.name,
+                  id: selection.tier.id,
+                  leads: selection.tier.leads
+                }) }}
               </div>
               <div class="text-sm text-textMuted">
-                {{ (selection.category.leadPrice * selection.tier.leads).toLocaleString('de-DE') }} €
+                {{
+                  (selection.category.leadPrice * selection.tier.leads)
+                    .toLocaleString($i18n.locale === 'de' ? 'de-DE' : 'en-US')
+                }} €
               </div>
             </div>
             <div class="flex gap-2">
-              <Button @click="mockAddToCart">In den Warenkorb</Button>
-              <Button variant="secondary" @click="selection=null">Abbrechen</Button>
+              <Button @click="mockAddToCart">{{ $t('market.addToCart') }}</Button>
+              <Button variant="secondary" @click="selection=null">{{ $t('market.cancel') }}</Button>
             </div>
           </div>
         </Card>
@@ -45,7 +54,7 @@
   
   function onSelect(payload: any){ selection.value = payload }
   function mockAddToCart(){
-    alert('Nur Frontend-Demo: Warenkorb/Funnel kommt im Backend-Schritt.')
+    alert('Frontend-Demo: Checkout folgt mit Backend.')
   }
   </script>
   
